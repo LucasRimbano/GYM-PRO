@@ -1195,3 +1195,87 @@ main > section:not(.hero)::before{
     radial-gradient(900px 520px at 85% 30%, rgba(241,90,36,.18), transparent 62%),
     linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
 }
+/* =========================
+   MOBILE TUNING (<= 480px)
+   Pegarlo al final del CSS
+========================= */
+@media (max-width: 480px){
+
+  /* 1) Contenedor: menos márgenes laterales */
+  .container{
+    width: min(1180px, calc(100% - 24px)) !important;
+  }
+
+  /* 2) Secciones: menos aire vertical */
+  section,
+  .section{
+    padding: 36px 0 !important;
+  }
+
+  /* 3) Cards: menos padding + bordes más suaves */
+  .card,
+  .benefit-card,
+  .plan-card,
+  .pricing-card{
+    padding: 16px !important;
+    border-radius: 18px !important;
+  }
+
+  /* 4) Títulos y texto: bajar 1 escalón */
+  h1{ font-size: 28px !important; line-height: 1.15 !important; }
+  h2{ font-size: 22px !important; line-height: 1.2 !important; }
+  h3{ font-size: 18px !important; }
+  p, li{ font-size: 15px !important; line-height: 1.45 !important; }
+
+  /* 5) Gaps entre elementos */
+  .grid,
+  .grid-2,
+  .grid-3,
+  .cards,
+  .cards-soft{
+    gap: 12px !important;
+  }
+
+  /* 6) Botones: menos altos */
+  .btn,
+  button,
+  .cta,
+  .btn-primary,
+  .btn-secondary{
+    padding: 12px 14px !important;
+    font-size: 15px !important;
+    border-radius: 14px !important;
+  }
+
+  /* 7) Pricing: el precio suele ser lo que “rompe” */
+  .price,
+  .plan-price,
+  .pricing-price{
+    font-size: 44px !important;   /* estaba muy “desktop” */
+    line-height: 1.0 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* 8) Badges (ej: “Más elegido”) más chicos */
+  .badge,
+  .tag,
+  .pill{
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+  }
+
+  /* 9) Mapa: controlar alto para que no coma pantalla */
+  iframe,
+  .map,
+  .map-embed{
+    height: 240px !important;
+    border-radius: 16px !important;
+  }
+
+  /* 10) Topbar / header: si lo ves alto */
+  .Top-bar,
+  header{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+}
