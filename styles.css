@@ -1472,3 +1472,61 @@ main{
     padding-top: calc(var(--topbar-h) + env(safe-area-inset-top));
   }
 }
+/* =========================
+   SCROLL REVEAL (APARECE AL SCROLLEAR)
+   Pegalo al final del CSS
+========================= */
+.reveal{
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(8px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease,
+    filter 700ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translate(0,0);
+  filter: blur(0);
+}
+
+/* Direcciones */
+.reveal--left{ transform: translateX(-34px); }
+.reveal--right{ transform: translateX(34px); }
+.reveal--up{ transform: translateY(34px); }
+
+/* Stagger (retraso opcional) */
+.reveal[data-delay]{
+  transition-delay: var(--delay, 0ms);
+}
+
+/* Si el usuario prefiere menos animaciones */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+/* Animación (1 ciclo) */
+.shake-vertical{
+  animation: shake-vertical 0.8s linear both;
+}
+
+@keyframes shake-vertical{
+  0%,100%{ transform: translateY(0); }
+  10%,30%,50%,70%{ transform: translateY(-3px); }
+  20%,40%,60%{ transform: translateY(3px); }
+  80%{ transform: translateY(2px); }
+  90%{ transform: translateY(-2px); }
+}
+
+/* Recomendado para links/botones */
+.btn{
+  display: inline-flex; /* ya lo tenés, lo dejo por claridad */
+  will-change: transform;
+}

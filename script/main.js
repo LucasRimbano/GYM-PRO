@@ -234,4 +234,73 @@ document.addEventListener("DOMContentLoaded", () => {
     setActive(0);
     start();
   }
+   
+    // -----------------------------------------
+  // 5) SCROLL REVEAL (IntersectionObserver)
+  // -----------------------------------------
+  const revealEls = document.querySelectorAll(".reveal");
+  const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+  if (revealEls.length && !reduce) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const delay = entry.target.getAttribute("data-delay");
+        if (delay) entry.target.style.setProperty("--delay", `${Number(delay)}ms`);
+
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target); // anima solo una vez
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: "0px 0px -10% 0px"
+    });
+
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    // fallback: si reduce motion o no hay observer
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  // -----------------------------------------
+// CTA "Unite ahora": shake DESPUÉS y cada 5s
+// -----------------------------------------
+const ctaJoin = document.getElementById("ctaJoin");
+const reduceMotionCTA = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+if (ctaJoin && !reduceMotionCTA) {
+  const SHAKE_CLASS = "shake-vertical";
+  const SHAKE_MS = 800;     // 0.8s
+  const INTERVAL_MS = 5000; // cada 5 segundos
+  const START_DELAY_MS = 2500; // empieza "después" de cargar
+
+  const triggerShake = () => {
+    ctaJoin.classList.remove(SHAKE_CLASS);
+    void ctaJoin.offsetWidth; // reinicia animación
+    ctaJoin.classList.add(SHAKE_CLASS);
+    setTimeout(() => ctaJoin.classList.remove(SHAKE_CLASS), SHAKE_MS + 30);
+  };
+
+  const inView = () => {
+    const r = ctaJoin.getBoundingClientRect();
+    return r.bottom > 0 && r.top < window.innerHeight;
+  };
+
+  // Arranca "después"
+  setTimeout(() => {
+    if (inView()) triggerShake();
+
+    // después de arrancar, sigue cada 5s
+    setInterval(() => {
+      if (inView()) triggerShake();
+    }, INTERVAL_MS);
+
+  }, START_DELAY_MS);
+
+  // Bonus opcional: shake al hover
+  ctaJoin.addEventListener("mouseenter", triggerShake);
+}
+
+
 });
