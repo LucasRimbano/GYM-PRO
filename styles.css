@@ -872,6 +872,7 @@ html{
 .pricing{
   padding: 56px 0 40px;
   background:
+    url(img/gym.jpg) 50% 35% / cover no-repeat fixed, 
     radial-gradient(1200px 700px at 15% 10%, rgba(34,197,94,.14), transparent 55%),
     radial-gradient(1000px 650px at 85% 15%, rgba(241,90,36,.14), transparent 55%),
     linear-gradient(180deg, #0f172a 0%, #0b1220 50%, #0f172a 100%);
