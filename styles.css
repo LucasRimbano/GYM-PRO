@@ -1279,3 +1279,40 @@ main > section:not(.hero)::before{
     padding-bottom: 10px !important;
   }
 }
+:root{
+  --topbar-h: 76px; /* ajustá si tu header es más alto */
+}
+
+/* Si tu header está fixed o sticky */
+.Top-bar,
+.topbar,
+header.topbar{
+  position: fixed;      /* si ya lo tenés fixed, dejalo igual */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* Compensación: el contenido arranca debajo del topbar */
+main{
+  padding-top: var(--topbar-h);
+}
+
+/* Si no usás <main>, aplicalo al hero */
+.hero,
+#hero,
+.section-hero{
+  padding-top: calc(var(--topbar-h) + 12px);
+}
+
+/* iPhone notch: suma safe-area */
+@supports (padding: max(0px)){
+  .Top-bar,
+  .topbar{
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+  main{
+    padding-top: calc(var(--topbar-h) + env(safe-area-inset-top));
+  }
+}
