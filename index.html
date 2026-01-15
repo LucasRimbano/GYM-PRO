@@ -84,14 +84,40 @@
           </div>
         </div>
 
-        <div class="hero-media" aria-hidden="true">
-          <!-- Imagen del atleta (poné la tuya en assets/hero-athlete.png) -->
-          <img class="hero-athlete" src="img/gym.jpg" alt="imagen" />
-          <div class="hero-arrows">
-            <span class="arrow"></span>
-            <span class="arrow"></span>
-          </div>
+        <div class="hero-media">
+            <div class="gp-carousel" id="gpCarousel" aria-label="Carrusel de imágenes del gimnasio">
+                <div class="gp-carousel-track">
+                    <div class="gp-slide is-active">
+                        <img src="img/gym.jpg" alt="Entrenamiento en sala" />
+                    </div>
+                    <div class="gp-slide">
+                        <img src="img/gym2.jpg" alt="Clases grupales" />
+                    </div>
+                    <div class="gp-slide">
+                        <img src="img/gym3.jpg" alt="Zona de peso libre" />
+                    </div>
+                </div>
+                <button class="gp-nav gp-prev" type="button" aria-label="Imagen anterior">
+                 ‹
+                </button>
+                <button class="gp-nav gp-next" type="button" aria-label="Imagen siguiente">
+                 ›
+                </button>
+
+            <div class="gp-dots" aria-label="Indicadores">
+                <button class="gp-dot is-active" type="button" aria-label="Ir a imagen 1"></button>
+                <button class="gp-dot" type="button" aria-label="Ir a imagen 2"></button>
+                <button class="gp-dot" type="button" aria-label="Ir a imagen 3"></button>
+             </div>
+            </div>
+
+            <!-- Si querés mantener tus flechas verdes decorativas -->
+            <div class="hero-arrows" aria-hidden="true">
+                <span class="arrow"></span>
+                <span class="arrow"></span>
+            </div>
         </div>
+
       </div>
       <section class="features" aria-label="Beneficios">
       <!-- FEATURES CARDS -->
