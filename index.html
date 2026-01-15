@@ -170,67 +170,78 @@
     </section>
     </section>
 
-    
-    <!-- SECTION: PLANES / CAPTURA -->
-    <section class="lead" id="planes">
-      <div class="container lead-inner">
+  <!-- SECTION: PLANES / CAPTURA (NUEVA con Lead Card) -->
+<section class="lead" id="planes">
+  <div class="container">
+
+    <!-- LEAD CARD (recuadro que engloba izquierda + form) -->
+    <div class="lead-card">
+
+      <!-- IZQUIERDA: imagen + copy -->
+      <div class="lead-left">
         <div class="lead-head">
           <h2>EMPEZÁ HOY</h2>
           <p>Dejá tus datos y te enviamos planes, precios y disponibilidad. Respuesta rápida.</p>
         </div>
-
-        <form class="lead-form" id="contacto" autocomplete="on">
-          <div class="field">
-            <label for="name">Nombre</label>
-            <input id="name" name="name" type="text" placeholder="Tu nombre" required />
-          </div>
-
-          <div class="field">
-            <label for="phone">WhatsApp</label>
-            <input id="phone" name="phone" type="tel" placeholder="+54 11..." required />
-          </div>
-          
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="Tu email" required />
-          </div>
-         
-          <div class="field">
-            <label for="age">Edad</label>
-            <input id="age" name="age" type="number" placeholder="Tu edad" required />
-          </div>
-
-          <div class="field">
-            <label for="kg">Peso (kg)</label>
-            <input id="kg" name="kg" type="number" placeholder="Tu peso" required />
-          </div>
-
-          <div class="field">
-            <label for="cm">Altura (cm)</label>
-            <input id="cm" name="cm" type="number" placeholder="Tu altura" required />
-          </div>
-
-          <div class="field">
-            <label for="goal">Objetivo</label>
-            <select id="goal" name="goal">
-              <option>Ganar fuerza</option>
-              <option>Bajar grasa</option>
-              <option>Recomposición</option>
-              <option>Rendimiento</option>
-            </select>
-          </div>
-          <div class="form-message" id="formMessage" aria-live="polite"></div>
-
-          <button class="btn btn-primary btn-wide" type="submit">
-            Quiero mi plan <span aria-hidden="true">→</span>
-          </button>
-
-          <p class="lead-note">
-            Al enviar aceptás recibir información del gym. Sin spam.
-          </p>
-        </form>
       </div>
-    </section>
+
+      <!-- DERECHA: form -->
+      <form class="lead-form" id="contacto" autocomplete="on">
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+        </div>
+
+        <div class="field">
+          <label for="phone">WhatsApp</label>
+          <input id="phone" name="phone" type="tel" placeholder="+54 11..." required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Tu email" required />
+        </div>
+
+        <div class="field">
+          <label for="age">Edad</label>
+          <input id="age" name="age" type="number" placeholder="Tu edad" required />
+        </div>
+
+        <div class="field">
+          <label for="kg">Peso (kg)</label>
+          <input id="kg" name="kg" type="number" placeholder="Tu peso" required />
+        </div>
+
+        <div class="field">
+          <label for="cm">Altura (cm)</label>
+          <input id="cm" name="cm" type="number" placeholder="Tu altura" required />
+        </div>
+
+        <div class="field">
+          <label for="goal">Objetivo</label>
+          <select id="goal" name="goal">
+            <option>Ganar fuerza</option>
+            <option>Bajar grasa</option>
+            <option>Recomposición</option>
+            <option>Rendimiento</option>
+          </select>
+        </div>
+
+        <div class="form-message" id="formMessage" aria-live="polite"></div>
+
+        <button class="btn btn-primary btn-wide" type="submit">
+          Quiero mi plan <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="lead-note">
+          Al enviar aceptás recibir información del gym. Sin spam.
+        </p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- =========================
      PLANES Y PRECIOS
