@@ -301,6 +301,33 @@ if (ctaJoin && !reduceMotionCTA) {
   // Bonus opcional: shake al hover
   ctaJoin.addEventListener("mouseenter", triggerShake);
 }
+// -----------------------------------------
+// HERO TITLE: animación texto sin "cuadro" (cada 10s)
+// -----------------------------------------
+const reduceMotionText = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+if (!reduceMotionText) {
+  import("https://esm.sh/animejs@4.2.2").then(({ createTimeline, stagger, splitText }) => {
+    const title = document.querySelector(".hero-title--flip");
+    if (!title) return;
+
+    // ✅ Split normal: NO clip, NO clone (no aparece el recuadro)
+    const { chars } = splitText(".hero-title--flip", {
+      chars: { wrap: "span" }
+    });
+
+    createTimeline({
+      loop: true,
+      loopDelay: 10000 // cada 10s
+    }).add(chars, {
+      translateY: [0, -14, 0], // sube y vuelve
+      duration: 850,
+      ease: "inOut(2)"
+    }, stagger(22, { from: "first" }));
+
+  }).catch((err) => console.warn("Anime.js no cargó:", err));
+}
+
 
 
 });

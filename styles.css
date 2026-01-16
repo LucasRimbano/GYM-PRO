@@ -1507,7 +1507,6 @@ main{
 }
 /* =========================
    SCROLL REVEAL (APARECE AL SCROLLEAR)
-   Pegalo al final del CSS
 ========================= */
 .reveal{
   opacity: 0;
@@ -1561,5 +1560,10 @@ main{
 /* Recomendado para links/botones */
 .btn{
   display: inline-flex; /* ya lo tenés, lo dejo por claridad */
+  will-change: transform;
+}
+/* HERO TITLE FLIP (sin recuadro) */
+.hero-title--flip .char{
+  display: inline-block;
   will-change: transform;
 }
